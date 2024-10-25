@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida a la Historia del Arte</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f7fa, #80deea);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: #333;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 2.5em;
+            color: #FF5733;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            margin-top: 20px;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            color: #fff;
+            background-color: #FF5733;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background-color: #C70039;
+            transform: translateY(-2px);
+        }
+        .quiz {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            .button, button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Historia del Arte!</h1>
+    <div class="content">
+        <p>
+            A lo largo de la historia, el arte ha sido una forma fundamental de expresión humana, reflejando pensamientos, emociones y experiencias.
+            Desde las pinturas rupestres hasta la evolución de estilos en civilizaciones como Egipto y Grecia,
+            el arte ha acompañado el desarrollo cultural y social de la humanidad.
+        </p>
+        <p>
+            Durante el Renacimiento, figuras como Leonardo Da Vinci y Michelangelo revolucionaron el arte, incorporando nuevas técnicas y un enfoque en el realismo.
+            Hoy en día, el arte continúa evolucionando, sirviendo como un espejo de nuestra cultura y capacidad creativa.
+        </p>
+        <p>
+            En resumen, el arte ha recorrido un largo camino desde sus inicios, y sigue siendo una poderosa forma de comunicación y reflexión sobre nuestra historia y sociedad.
+        </p>
+    </div>
+    
+    <div class="quiz">
+        <h2>Juego de Adivinanza</h2>
+        <p id="question"></p>
+        <input type="text" id="answer" placeholder="Escribe tu respuesta aquí">
+        <button onclick="checkAnswer()">Adivinar</button>
+    </div>
+    
+    <a href="Modulos.html" class="button">Regresar a los Módulos</a>
+
+    <script>
+        const questions = [
+            { question: "¿Qué forma de arte se considera una de las primeras manifestaciones creativas del ser humano, encontrada en cuevas y abrigos rocosos?", answer: "pinturas rupestres" },
+            { question: "¿Cuál es el nombre del famoso pintor italiano conocido por su obra 'La Última Cena'?", answer: "leonardo da vinci" },
+            { question: "¿Qué movimiento artístico es conocido por su énfasis en la luz y el color, y que incluye a artistas como Monet y Renoir?", answer: "impresionismo" }
+        ];
+
+        function getRandomQuestion() {
+            const randomIndex = Math.floor(Math.random() * questions.length);
+            return questions[randomIndex];
+        }
+
+        let currentQuestion = getRandomQuestion();
+        document.getElementById("question").textContent = currentQuestion.question;
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById("answer").value.toLowerCase();
+            if (userAnswer === currentQuestion.answer) {
+                alert("¡Adivinaste! " + currentQuestion.answer.charAt(0).toUpperCase() + currentQuestion.answer.slice(1) + " es la respuesta.");
+            } else {
+                alert("Incorrecto. Inténtalo de nuevo. Pista: " + currentQuestion.answer.charAt(0).toUpperCase() + currentQuestion.answer.slice(1) + " es la respuesta correcta.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Bienvenida</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 50px;
+            background: linear-gradient(135deg, #e0f7fa, #80deea);
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #FF5733;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .module {
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            display: inline-block;
+            width: 220px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .module:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #007BFF;
+        }
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 25px;
+            color: #fff;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .button.red {
+            background-color: #FF5733;
+        }
+        .button.red:hover {
+            background-color: #C70039;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .module {
+                width: 80%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Módulos!</h1>
+    <p>Selecciona un módulo para comenzar:</p>
+    
+    <div class="module">
+        <h3>Historia del Arte</h3>
+        <a href="Historia_del_Arte.html" class="button">Entrar</a>
+    </div>
+    
+    <div class="module">
+        <h3>Consejos</h3>
+        <a href="Cosejos_Artisticos.html" class="button">Entrar</a> 
+    </div>
+    
+    <div class="module">
+        <h3>Galería de Arte</h3>
+        <a href="Galeria.html" class="button">Entrar</a>
+    </div>
+    
+    <div class="module">
+        <h3>Dibujo</h3>
+        <a href="Dibujo.html" class="button">Entrar</a>
+    </div>
+    
+    <br>
+    <a href="index.html" class="button red">Regresar al Inicio</a>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida a Consejos Artísticos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 50px;
+            background-color: #e0f7fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #FF5733;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #C70039;
+        }
+        .counsel-text, .question-container {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: left;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Bienvenido a Consejos Artísticos!</h1>
+    <p>Aquí encontrarás recomendaciones y técnicas para mejorar tus habilidades artísticas.</p>
+    
+    <div class="counsel-text">
+        <h2>10 Consejos Artísticos</h2>
+        <p>
+            1. Experimenta sin miedo: No tengas miedo de probar nuevos materiales o técnicas. La experimentación puede llevarte a descubrimientos sorprendentes.<br>
+            2. Estudia a los maestros: Analiza las obras de artistas que admires. Observa sus técnicas y estilos, y busca inspiración en ellos.<br>
+            3. Crea una rutina: Dedica tiempo regularmente a tu arte. La consistencia te ayudará a desarrollar tus habilidades y mantener la creatividad fluyendo.<br>
+            4. Haz bocetos diarios: Lleva un cuaderno de bocetos y dibuja todos los días. No te preocupes por la perfección; simplemente disfruta del proceso.<br>
+            5. Recibe críticas constructivas: Comparte tu trabajo con otros y está abierto a recibir comentarios. La retroalimentación puede ofrecerte nuevas perspectivas.<br>
+            6. Establece metas: Fija objetivos claros para tu práctica artística, como completar un proyecto específico o experimentar con una nueva técnica.<br>
+            7. Observa tu entorno: La inspiración puede venir de cualquier lugar. Presta atención a los detalles de la vida cotidiana y tradúcelos a tu arte.<br>
+            8. Crea en comunidad: Conéctate con otros artistas. Colaborar o simplemente compartir experiencias puede enriquecer tu proceso creativo.<br>
+            9. Sé paciente: El desarrollo artístico lleva tiempo. No te desanimes si las cosas no salen como esperabas; cada paso cuenta.<br>
+            10. Diviértete: Recuerda por qué te apasiona el arte. Mantén el disfrute en el centro de tu práctica, y no te olvides de jugar y explorar.
+        </p>
+    </div>
+
+    <div class="question-container hidden">
+        <h2 id="question-text"></h2>
+        <button class="button" id="true-button" onclick="checkAnswer(true)">Verdadero</button>
+        <button class="button" id="false-button" onclick="checkAnswer(false)">Falso</button>
+    </div>
+
+    <a href="Modulos.html" class="button">Regresar a los Módulos</a>
+
+    <script>
+        const questions = [
+            { text: "¿Deberías experimentar sin miedo?", answer: true },
+            { text: "¿Es importante estudiar a los maestros?", answer: true },
+            { text: "¿Debes evitar crear una rutina en tu arte?", answer: false },
+            { text: "¿Es recomendable hacer bocetos diarios?", answer: true },
+            { text: "¿Debes ignorar las críticas constructivas?", answer: false },
+            { text: "¿Es útil establecer metas artísticas?", answer: true },
+            { text: "¿La inspiración puede venir de cualquier lugar?", answer: true },
+            { text: "¿Deberías crear en comunidad?", answer: true },
+            { text: "¿El desarrollo artístico es instantáneo?", answer: false },
+            { text: "¿Es importante divertirse mientras haces arte?", answer: true }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function showQuestion() {
+            const questionContainer = document.querySelector('.question-container');
+            const questionText = document.getElementById('question-text');
+            questionText.textContent = questions[currentQuestionIndex].text;
+            questionContainer.classList.remove('hidden');
+        }
+
+        function checkAnswer(userAnswer) {
+            const correctAnswer = questions[currentQuestionIndex].answer;
+            if (userAnswer === correctAnswer) {
+                alert("¡Correcto!");
+            } else {
+                alert("Incorrecto. La respuesta correcta es: " + (correctAnswer ? "Verdadero." : "Falso."));
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion();
+            } else {
+                alert("¡Has completado todas las preguntas!");
+                // Opcionalmente, puedes ocultar la sección de preguntas al final
+                document.querySelector('.question-container').classList.add('hidden');
+            }
+        }
+
+        // Muestra la primera pregunta al cargar la página
+        window.onload = showQuestion;
+    </script>
+</body>
+</html>
